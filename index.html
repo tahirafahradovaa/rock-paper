@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Rock Paper Scissor</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="main-header">
+        <img src="./images/logo.svg" alt="mainlogo" />
+        <div class="scoreScreen">
+          <div class="scoreTitle">SCORE</div>
+          <div class="scoreNumber">0</div>
+        </div>
+      </header>
+      <section class="gameZone">
+        <button class="choice-btn" value="paper">
+          <div class="choice paper">
+            <img src="./images/icon-paper.svg" />
+          </div>
+        </button>
+        <button class="choice-btn" value="scissors">
+          <div class="choice scissors">
+            <img src="./images/icon-scissors.svg" />
+          </div>
+        </button>
+        <button class="choice-btn" value="rock">
+          <div class="choice rock">
+            <img src="./images/icon-rock.svg" />
+          </div>
+        </button>
+      </section>
+      <div class="rules-page">
+        <div class="rules-container">
+          <header class="header-rules">
+            <h2 class="rules-text">RULES</h2>
+            <button class="close">
+              <img src="./images/icon-close.svg" />
+            </button>
+          </header>
+          <img src="./images/image-rules.svg" class="rules-img" />
+        </div>
+      </div>
+      <section class="finalPage">
+        <h2 class="choice-title">YOU PICKED</h2>
+        <h2 class="choice-title">THE HOUSE PICKED</h2>
+        <div class="results"></div>
+        <div class="winner">
+          <h3 class="text"></h3>
+          <button class="restart">PLAY AGAIN</button>
+        </div>
+        <div class="results comp-choice"></div>
+      </section>
+    </div>
+    <button class="rules">RULES</button>
+
+    <script src="app.js"></script>
+  </body>
+</html>

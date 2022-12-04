@@ -1,0 +1,263 @@
+:root{
+    --scissorGra1: hsl(39, 89%, 49%);
+    --scissorGra2: hsl(40, 84%, 53%);
+    --paperGra:  hsl(230, 89%, 62%);
+    --paperGra2:   hsl(230, 89%, 65%);
+    --rockGra: hsl(349, 71%, 52%) ;
+    --rockGra2:  hsl(349, 70%, 56%);
+    --darkText: hsl(229, 25%, 31%);
+    --scoreText:  hsl(229, 64%, 46%);
+    --header: hsl(217, 16%, 45%);
+    --bgColor1: hsl(214, 47%, 23%);
+    --bgColor2: hsl(237, 49%, 15%);
+    --font:'Franklin Gothic Medium', 'Arial Narrow', Arial;
+    --fontNorm:600;
+    --fontBold:700;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: radial-gradient(at top,var(--bgColor1),var(--bgColor2));
+    color: var(--header);
+    font-weight: var(--fontBold);
+    text-align: center;
+    font-family: var(--font), sans-serif;
+}
+.container{
+    height: 100%;
+    height: 100vh; 
+}
+.main-header{
+    margin: 30px auto;
+    width: 80%;
+    max-width: 750px;
+    border-radius: 15px;
+    border: 2px solid var(--header);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.scoreScreen{
+    letter-spacing: 1px;
+    background-color: azure;
+    width: 120px;
+    border-radius: 15px;
+    padding: 20px 25px;
+}
+.scoreTitle{
+    font-size: 14px;
+    color: var(--scoreText);
+}
+.scoreNumber{
+    font-size: 40px;
+    color: var(--darkText);
+}
+.gameZone{
+    gap:20px;
+    width: 500px;
+    margin: 120px auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: (repeat(2, 1fr));
+    grid-template-areas:
+        "paper scissors"
+          "rock rock";
+    place-items: center;
+   
+      }
+.gameZone::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 19%;
+    top: 17%;
+    background: url("./images/bg-triangle.svg") no-repeat;
+    z-index: -1;
+      } 
+
+.choice-btn{
+    width: 11rem;
+    height: 11rem;
+    border-radius: 50%;
+    border: none;
+    padding-left: 30px;
+    cursor: pointer;
+}
+.choice{
+    width: 120px;
+    height: 120px;
+    background: white;
+    padding-top: 35px;
+    border-radius: 50%;
+    
+}
+.choice-btn:nth-of-type(3){
+    display: block;
+    background: radial-gradient(at top, var(--rockGra), var(--rockGra2));
+    grid-area: rock;
+    
+}
+.choice-btn:nth-of-type(2){
+    background: radial-gradient(at top, var(--scissorGra1), var(--scissorGra2));
+    grid-area: scissors; 
+}
+.choice-btn:nth-of-type(1){
+    background: radial-gradient(at left,var(--paperGra), var(--paperGra2)) ;
+    grid-area: paper; 
+}
+.rules{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: none;
+    border: 2px solid var(--darkText);
+    border-radius: 0.6rem;
+    color: whitesmoke;
+    padding: 0.6rem 2.5rem;
+    font-family: var(--font), sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    outline: none;
+  }
+.rules-page{
+    position: relative;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.rules-container{
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    font-family:'Barlow Semi Condensed', sans-serif ;
+    display: none;
+  
+}
+.header-rules{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    color: var(--darkText);
+}
+.close{
+    background: transparent;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+}
+.finalPage{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    grid-template-areas:
+        "you-pick house-pick"
+        "your-choice house-choice";
+    max-width: 1000px;
+    margin: 0 auto;
+    display: none;
+}
+.choice-title:nth-of-type(1){
+    grid-area: you-pick;
+}
+.choice-title:nth-of-type(2){
+    grid-area: house-pick;
+}
+.results:nth-of-type(1){
+    grid-area: your-choice;
+}
+.results:nth-of-type(2){
+    grid-area: house-choice;
+}
+.choice-title{
+    padding: 15px;
+    color: white;
+    margin: 20px;
+}
+.results{   
+    width: 100px;
+    height: 100px;
+    background: hsl(213, 46%, 18%);
+    border-radius: 50%;
+    margin-top: 60px;
+position: relative;
+}
+.results> .paper{
+    width: 160px;
+    height: 160px;
+    border: 26px solid var(--paperGra) ;
+    margin:-20px
+}
+.results> .scissors{
+    width: 160px;
+    height: 160px;
+    border: 25px solid  var(--scissorGra1);
+    margin:-20px;
+    padding:-20px;
+}
+.results> .rock{
+    width: 160px;
+    height: 160px;
+    border: 25px solid  var(--rockGra);
+    margin:-20px;
+    
+}
+.results > img{
+margin-bottom:25px;
+}
+.paper>img{
+    margin-top: -10px;
+}
+.winner{
+display: none;
+position: absolute;
+top: 400px;
+text-transform: uppercase;
+color: white;
+font-weight: 700;
+font-size: 1.2rem;
+}
+.restart{
+    margin-top: 10px;
+    background-color: white;
+    color: var(--paperGra);
+    letter-spacing: 1.1px;
+    padding: 10px 40px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+}
+.restart:hover{
+    color: var(--rockGra);
+}
+@media screen and (max-width:700px){
+.winner{
+    top:600px
+}
+.rules-container{
+font-size: 2.6rem;
+margin-top:-190px;
+width: 100vw;
+height: 100vh;
+position: relative;
+z-index: 1;
+}
+.rules-img{
+    padding-top: 300px;
+    width: 450px;
+}
+.header-rules{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+}
